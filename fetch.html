@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <body>
+    <article>
+
+    </article>
+    <input type="button" value="fetch" onclick="
+      // 익명함수 : 아래는 이름 없이 정의되는 방식
+      /*
+      fetch('html').then(function(response){
+        response.text().then(function(text){
+          <!-- alert(text); -->
+          document.querySelector('article').innerHTML = text;
+        })
+      })
+      */
+      //Asynchronous
+      function callbackme(){
+        console.log('response end');
+      }
+      //fetch('html').then(callbackme);
+      //비동기함수로 동작을 정의하면 위의 문장이 아래와 같아짐
+      fetch('html').then(function(response){
+        console.log(response.status);
+        if (response.status == '404'){
+          alert('Not Found')
+        }
+      });     // 비동기함수로 작성하면 뒤에 ; 붙여줘야 함을 잊지 말자~
+
+      console.log(1);
+      console.log(2);
+    ">
+  </body>
+</html>
